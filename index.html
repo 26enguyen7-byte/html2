@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Emilia Nguyen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --soft-lilac: #f3efff;
+            --accent: #a855f7;
+            --deep-purple: #4c1d95;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--deep-purple);
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* Nav */
+        nav {
+            width: 100%;
+            padding: 1.2rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--soft-lilac);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--deep-purple);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--accent); }
+
+        /* BIG TYPOGRAPHY */
+        header { 
+            text-align: center; 
+            padding: 4rem 1rem 3rem; 
+        }
+        
+        h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(3.5rem, 10vw, 5.5rem); 
+            text-transform: uppercase; 
+            margin: 0;
+            color: var(--deep-purple);
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+        
+        .edition-label {
+            letter-spacing: 6px; 
+            font-size: 0.75rem; 
+            color: var(--accent); 
+            font-weight: 600;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+        
+        /* Contained Layout */
+        .hero-wrapper {
+            max-width: 950px; 
+            margin: 0 auto 5rem;
+            padding: 0 20px;
+        }
+
+        .main-section {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            border: 1px solid var(--soft-lilac);
+            height: 600px; /* SHORTER PHOTO HEIGHT */
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 20px 50px rgba(76, 29, 149, 0.05);
+        }
+
+        /* Slideshow */
+        .image-container { 
+            position: relative;
+            width: 100%; 
+            height: 100%; 
+            overflow: hidden; 
+        }
+
+        .slideshow {
+            display: flex;
+            width: 400%; 
+            height: 100%;
+            animation: slide4 16s infinite cubic-bezier(0.7, 0, 0.3, 1);
+        }
+
+        .slideshow img {
+            width: 25%; 
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes slide4 {
+            0%, 20% { transform: translateX(0); }             
+            25%, 45% { transform: translateX(-25%); }         
+            50%, 70% { transform: translateX(-50%); }         
+            75%, 95% { transform: translateX(-75%); }         
+            100% { transform: translateX(0); }                
+        }
+        
+        .content-container { 
+            padding: 40px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+            border-left: 1px solid var(--soft-lilac);
+        }
+
+        .description { 
+            font-size: 1.1rem; 
+            margin-bottom: 30px; 
+            color: var(--deep-purple); 
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .shop-btn {
+            background: var(--deep-purple);
+            color: var(--white);
+            text-decoration: none;
+            padding: 18px 35px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            transition: 0.3s;
+            align-self: flex-start;
+        }
+
+        .shop-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Game Section - RESTORED */
+        .game-section {
+            padding: 80px 20px;
+            background-color: var(--soft-lilac);
+            text-align: center;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 80px);
+            gap: 12px;
+            justify-content: center;
+            margin: 30px auto;
+        }
+
+        .card {
+            width: 80px; height: 110px;
+            background-color: var(--accent);
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; color: transparent;
+            transition: 0.4s;
+        }
+
+        .card.flipped { background-color: var(--white); color: var(--deep-purple); transform: rotateY(180deg); }
+        .card.matched { background-color: var(--deep-purple); color: var(--white); cursor: default; }
+
+        .reset-btn {
+            background: none; border: 1.5px solid var(--deep-purple);
+            color: var(--deep-purple); padding: 12px 25px;
+            font-weight: 700; text-transform: uppercase; font-size: 0.75rem;
+            cursor: pointer; transition: 0.3s;
+        }
+
+        @media (max-width: 850px) { 
+            .main-section { grid-template-columns: 1fr; height: auto; }
+            .image-container { height: 400px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="photography.html">Photography</a>
+        <a href="design.html">Design</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <header>
+        <h1>HOME</h1>
+        <div class="edition-label">EMILIA'S PORTFOLIO 2026</div>
+    </header>
+
+    <div class="hero-wrapper">
+        <section class="main-section">
+            <div class="image-container">
+                <div class="slideshow">
+                    <img src="thu.jpg" alt="1">
+                    <img src="tiana.jpg" alt="2">
+                    <img src="red.jpg" alt="3">
+                    <img src="disney.jpg" alt="4">
+                </div>
+            </div>
+            <div class="content-container">
+                <p class="description">Digital artistry meets cinematic precision. Explore a curated collection of visual storytelling, where every pixel is designed with purpose and every frame tells a story.</p>
+                <a href="photography.html" class="shop-btn">Explore Work</a>
+            </div>
+        </section>
+    </div>
+
+    <section class="game-section">
+        <h2 style="font-family: 'Playfair Display', serif; text-transform: uppercase; margin: 0;">Match the Symbols!</h2>
+        <div class="game-grid" id="grid"></div>
+        <button class="reset-btn" onclick="resetGame()">Reset Game</button>
+    </section>
+
+    <script>
+        const symbols = ['✦', '✿', '♥', '★', '✦', '✿', '♥', '★'];
+        let flippedCards = [];
+        let matchedCount = 0;
+
+        function createBoard() {
+            const grid = document.getElementById('grid');
+            const shuffled = symbols.sort(() => 0.5 - Math.random());
+            grid.innerHTML = '';
+            shuffled.forEach((symbol) => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.dataset.symbol = symbol;
+                card.onclick = () => flipCard(card);
+                grid.appendChild(card);
+            });
+        }
+
+        function flipCard(card) {
+            if (flippedCards.length < 2 && !card.classList.contains('flipped')) {
+                card.classList.add('flipped');
+                card.textContent = card.dataset.symbol;
+                flippedCards.push(card);
+                if (flippedCards.length === 2) setTimeout(checkMatch, 500);
+            }
+        }
+
+        function checkMatch() {
+            const [card1, card2] = flippedCards;
+            if (card1.dataset.symbol === card2.dataset.symbol) {
+                card1.classList.add('matched'); card2.classList.add('matched');
+                matchedCount += 2;
+                if (matchedCount === symbols.length) alert('Victory!');
+            } else {
+                card1.classList.remove('flipped'); card2.classList.remove('flipped');
+                card1.textContent = ''; card2.textContent = '';
+            }
+            flippedCards = [];
+        }
+
+        function resetGame() { matchedCount = 0; flippedCards = []; createBoard(); }
+        createBoard();
+    </script>
+</body>
+</html>
