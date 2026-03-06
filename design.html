@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design | Emilia Nguyen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --soft-lilac: #f3efff;
+            --accent: #a855f7;
+            --deep-purple: #4c1d95;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--deep-purple);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* Nav - Consistent across all pages */
+        nav {
+            width: 100%;
+            padding: 1.2rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--soft-lilac);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--deep-purple);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s;
+        }
+
+        nav a.active {
+            color: var(--accent);
+        }
+
+        nav a:hover { color: var(--accent); }
+
+        /* Header Section */
+        header { 
+            text-align: center; 
+            padding: 5rem 1rem 3rem; 
+        }
+
+        h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(3rem, 8vw, 5rem); 
+            text-transform: uppercase; 
+            margin: 0;
+            color: var(--deep-purple);
+            letter-spacing: -2px;
+        }
+
+        .edition-label {
+            letter-spacing: 6px; 
+            font-size: 0.75rem; 
+            color: var(--accent); 
+            font-weight: 600;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Design Grid Section */
+        .gallery-section {
+            background-color: var(--soft-lilac);
+            padding: 60px 20px 100px;
+        }
+
+        .gallery {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+        }
+
+        .photo-item {
+            background: var(--white);
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(76, 29, 149, 0.05);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(76, 29, 149, 0.12);
+        }
+
+        .photo-item img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+        }
+
+        .caption {
+            padding: 20px 0 10px;
+            text-align: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--deep-purple);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Button Section */
+        .btn-container {
+            text-align: center;
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .back-btn {
+            background: var(--deep-purple);
+            color: var(--white);
+            text-decoration: none;
+            padding: 18px 40px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .back-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 900px) {
+            .gallery { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .gallery { grid-template-columns: 1fr; }
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="photography.html">Photography</a>
+        <a href="design.html" class="active">Design</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <header>
+        <h1>Design</h1>
+        <div class="edition-label">Creative Works // 2026</div>
+    </header>
+
+    <div class="gallery-section">
+        <main class="gallery">
+            <div class="photo-item">
+                <img src="rainbow.png" alt="peace">
+                <div class="caption">01 // OVER THE RAINBOW</div>
+            </div>
+            <div class="photo-item">
+                <img src="floral.png" alt="floral">
+                <div class="caption">02 // MONOCHROME FIELDS</div>
+            </div>
+            <div class="photo-item">
+                <img src="leaves.png" alt="leaf">
+                <div class="caption">03 // WHISPERING LEAVES</div>
+            </div>
+
+            <div class="photo-item">
+                <img src="blurred.png" alt="sunset">
+                <div class="caption">04 // BLURRED SUNSET</div>
+            </div>
+            <div class="photo-item">
+                <img src="top.png" alt="top">
+                <div class="caption">05 // FLOWING RIVER</div>
+            </div>
+            <div class="photo-item">
+                <img src="eye.png" alt="eye">
+                <div class="caption">06 // EYE FOR AN EYE</div>
+            </div>
+
+            </div>
+        </main>
+    </div>
+
+    <div class="btn-container">
+        <a href="home.html" class="back-btn">Back to Home</a>
+    </div>
+
+</body>
+</html>
